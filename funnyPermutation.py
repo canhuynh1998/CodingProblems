@@ -5,14 +5,12 @@ def main():
         current = int(input())
         per = []
         if current == 3:
-            print("-1")
+            print(-1)
             continue
-        for i in reversed(range(1, current + 1)):
-            if i % 2 == 0:
-                per.append(str(i-1))
-            else:
-                per.append(str(i))
-
+            
+        for i in range(3, current + 1):
+            per.append(str(i))
+        per += ["2","1"]
         string = " ".join(per)
         print(string)
     
