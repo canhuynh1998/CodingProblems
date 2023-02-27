@@ -14,9 +14,7 @@ Print a single integer — the answer to the problem.
 def main():
     n = int(input())
     s = input()
-
     stones = 0
-
     for idx in range(1, n):
         if s[idx] == s[idx-1]:
             stones += 1
