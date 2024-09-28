@@ -3,7 +3,7 @@ def main():
     n = int(read.readline())
     points = 0
     for _ in range(n):
-        a, b, g = list(read.readline().split(" "))
+        a, b, g = list(map(int, read.readline().split(" ")))
         if g == a or g == b:
             points += 1
     print(points, file=open("shell.out","w"))
