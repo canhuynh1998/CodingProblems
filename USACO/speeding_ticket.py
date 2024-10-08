@@ -5,30 +5,15 @@ def main():
 
     for _ in range(n):
         r, s = list(map(int, read.readline().split(" ")))
-        rs.append((r, s))
+        rs += [s] * r
     
     bes = []
     for _ in range(m):
         br, bs = list(map(int, read.readline().split(" ")))
-        bes.append((br, bs))
-    idx1, idx2 = 0, 0
+        bes += [bs] * br
     max_speed = 0
-
-    while idx1 < len(rs) and idx2 < len(bes):
-        segment, speed_limit = rs[idx1]
-        journey, speed_actual = bes[idx2]
-        if speed_actual > speed_limit:
-
-            max_speed = max(max_speed, speed_actual - speed_limit)
-        
-        if segment > journey:
-            idx2 += 1
-        elif segment < journey:
-            idx1 += 1
-        else:
-            idx1 += 1
-            idx2 += 1
-
+    for idx, road in enumerate(rs):
+        max_speed = max(max_speed, bes[idx] - road)
 
     with open("speeding.out","w+") as f:
         print(max_speed, file=f)    
